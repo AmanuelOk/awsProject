@@ -1,0 +1,30 @@
+<div ng-controller="branchesCtrl">
+<table class="table table-striped table-dark">
+		<thead>
+			<tr>
+				<th scope="col">Branch Id</th>
+				<th scope="col">Branch Name</th>
+				<th scope="col">Branch Address</th>
+				<th scope="col">Book Title</th>
+				<th scope="col">Book Genres</th>
+				<th scope="col">Delete</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="br in branches">
+				<td scope="col">{{br.branchId}}</td>
+				<td scope="col">{{br.name}}</td>
+				<td scope="col">{{br.address}}</td>
+				<td scope="col"><span ng-repeat="b in br.list_of_Books">{{b.title}} |</span></td>
+				<td scope="col">
+				<span ng-repeat="bl in br.list_of_Books">
+				<span ng-repeat="g in bl.genre_list">
+				{{g.genreName}}|</span>
+				</span></td>
+				<td scope="col"><button ng-click="editBranch(br)">Edit Branch</button></td>
+				<td scope="col"><button ng-click="deleteBranch(br)">Delete</button></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+

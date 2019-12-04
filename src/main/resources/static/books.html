@@ -1,0 +1,47 @@
+<div ng-controller="showBookCtrl">
+
+<form>
+  <div class="row">
+    <div class="col">
+      <input type="text" class="form-control" placeholder="title" ng-Model="title">
+    </div>
+    <div class="col">
+      <input type="text" class="form-control" placeholder="publisherId" ng-Model="pubId">
+    </div>
+    <div class="col">
+      <input type="text" class="form-control" placeholder="branchId" ng-Model="branchId">
+    </div>
+    <div class="col">
+      <input type="text" class="form-control" placeholder="#Copies" ng-Model="copies">
+    </div>
+   <div class="col">
+      <input type="text" class="form-control" placeholder="AuthorId" ng-Model="authorId">
+    </div>
+    <div class="col">
+      <input type="text" class="form-control" placeholder="GenreId" ng-Model="genreId">
+    </div>
+   <div class="col-auto">
+      <button class="btn btn-primary mb-2" ng-click="saveBook()">SaveBook</button>
+    </div>
+  </div>
+</form>
+<table class="table table-striped table-dark">
+		<thead>
+			<tr>
+				<th scope="col">Book Title</th>
+				<th scope="col">Genre</th>
+				<th scope="col">Edit</th>
+				<th scope="col">Delete</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="b in books">
+				<td scope="col">{{b.title}}</td>
+				<td scope="col"><span ng-repeat="g in b.genre_list">{{g.genreName}} |</span></td>
+				<td scope="col"><button ng-click="edit(b)">Edit</button></td>
+				<td scope="col"><button ng-click="delete(b)">Delete</button></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+

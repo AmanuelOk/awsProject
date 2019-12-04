@@ -1,0 +1,34 @@
+
+<div ng-controller="authorsCtrl">
+<ul class="list-group list-group-horizontal-md">
+  <li class="list-group-item"><button><a href="#/books"><h4>Show All Books</h4></a></button></li>
+  <li class="list-group-item"><button><a href="#/authors"><h4>Show All Authors</h4></a></button></li>
+  <li class="list-group-item"><button><a href="#/borrowers"><h4>showBookLoans</h4></a></button></li>
+</ul> 
+<div ng-if="showAuthors">
+<table class="table table-striped table-dark" >
+		<thead>
+			<tr>
+				<th scope="col">Author Name</th>
+				<th scope="col">Books Written</th>
+				<th scope="col">Genre</th>
+				<th scope="col">Edit</th>
+				<th scope="col">Edit</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="a in authors">
+				<td scope="col">{{a.authorName}}</td>
+				<td scope="col"><span ng-repeat="b in a.book_list">{{b.title}} |</span></td>
+				<td scope="col">
+				<span ng-repeat="bl in a.book_list">
+				<span ng-repeat="g in bl.genre_list">
+				{{g.genreName}}|</span>
+				</span></td>
+				<td scope="col"><button ng-click="editAuthor(a)">Edit</button></td>
+				<th scope="col"><button ng-click="">Delete</button></th>
+			</tr>
+		</tbody>
+	</table>
+    </div>
+<div>

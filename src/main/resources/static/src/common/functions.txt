@@ -1,0 +1,24 @@
+	$scope.deleteAuthor= function(a){ 
+		alert(a.authorName);
+		$http.post("http://localhost:9050/admin/deleteaAuthor", a).success(function(data){
+		$scope.status = data;
+	};
+	
+	$scope.createAuthor = function(){
+		var author = {
+				authorName: $scope.AuthorFName +" "+ $scope.AuthorLName
+		}
+		$http.post("http://localhost:9050/admin/saveAuthor", author).then(function(data){
+		alert("Submitted");
+		})
+		$window.location = "#/authors";
+	};
+	
+private String title;
+	 pubId;
+	authorId;
+	branchId;
+	copies;
+	genreId;
+	
+	

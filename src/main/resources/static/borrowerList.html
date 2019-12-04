@@ -1,0 +1,34 @@
+<div ng-controller="bookLoansCtrl">
+<table class="table table-striped table-dark" >
+		<thead>
+			<tr>
+			    <th scope="col">Borrower CardNo</th>
+				<th scope="col">Borrower Name</th>
+				<th scope="col">Borrower Address</th>
+                <th scope="col">Borrower Phone</th>
+				<th scope="col">Branch Name</th>
+                <th scope="col">Branch Address</th>
+				<th scope="col">Book Title</th>
+				<th scope="col">Date Out</th>
+				<th scope="col">Due Date</th>
+				<th scope="col">DateIn</th>
+				<th scope="col">Extend Due Date</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="b in borrowers">
+				<td scope="col">{{b.cardNo}}</td>
+				<td scope="col">{{b.borrower.name}}</td>
+				<td scope="col" >{{b.borrower.address}}</td>
+				<td scope="col" >{{b.borrower.phone}}</td>
+				<td scope="col" >{{b.branch.name}}</td>
+				<td scope="col" >{{b.branch.address}}</td>
+				<td scope="col" >{{b.book.title}}</td>
+				<td scope="col">{{b.dateOut}}</td>
+				<td scope="col">{{b.dueDate}}</td>
+				<td scope="col">{{b.dateIn}}</td>
+				<td scope="col"><button ng-click="extend(b.borrower.cardNo)">Extend</button></td>
+			</tr>
+		</tbody>
+	</table>
+    </div>

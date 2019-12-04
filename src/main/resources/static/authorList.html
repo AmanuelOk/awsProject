@@ -1,0 +1,40 @@
+<div ng-controller="authorsCtrl">
+
+<form>
+  <div class="row">
+    <div class="col">
+      <input type="text" class="form-control" placeholder="Author First Name" ng-Model="AuthorFName">
+    </div>
+    <div class="col">
+      <input type="text" class="form-control" placeholder="Author Name" ng-Model="AuthorLName">
+    </div>
+     <div class="col-auto">
+      <button class="btn btn-primary mb-2" ng-click="createAuthor()">Create Author</button>
+    </div>
+  </div>
+</form>
+<table class="table table-striped table-dark">
+		<thead>
+			<tr>
+				<th scope="col">Author Name</th>
+				<th scope="col">Books Written</th>
+				<th scope="col">Genre</th>
+				<th scope="col">Edit</th>
+				<th scope="col">Delete</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="a in authors">
+				<td scope="col">{{a.authorName}}</td>
+				<td scope="col"><span ng-repeat="b in a.book_list">{{b.title}} |</span></td>
+				<td scope="col">
+				<span ng-repeat="bl in a.book_list">
+				<span ng-repeat="g in bl.genre_list">
+				{{g.genreName}}|</span>
+				</span></td>
+				<td scope="col"><button ng-click="editAuthor(a)">Edit</button></td>
+				<td scope="col"><button ng-click="deleteAuthor(a)">Delete</button></td>
+			</tr>
+		</tbody>
+	</table>
+</div>

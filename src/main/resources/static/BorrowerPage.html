@@ -1,0 +1,58 @@
+<div ng-controller="CopiesCtrl">
+<form>
+  <div class="row">
+    <div class="col">
+      <input type="text" class="form-control" placeholder="bookId" ng-Model="bookId">
+    </div>
+    <div class="col">
+      <input type="text" class="form-control" placeholder="branchId" ng-Model="branchId">
+    </div>
+    <div class="col">
+      <input type="text" class="form-control" placeholder="cardNo" ng-Model="cardNo">
+    </div>
+   <div class="col-auto">
+      <button class="btn btn-primary mb-2" ng-click="checkOut()">checkOut</button>
+    </div>
+  </div>
+</form>
+<form>
+  <div class="row">
+    <div class="col">
+      <input type="text" class="form-control" placeholder="bookId" ng-Model="book_Id">
+    </div>
+    <div class="col">
+      <input type="text" class="form-control" placeholder="branchId" ng-Model="branch_Id">
+    </div>
+    <div class="col">
+      <input type="text" class="form-control" placeholder="cardNo" ng-Model="card_No">
+    </div>
+   <div class="col-auto">
+      <button class="btn btn-primary mb-2" ng-click="checkIn()">checkIn</button>
+    </div>
+  </div>
+</form>
+
+<table class="table table-striped table-dark">
+		<thead>
+			<tr>
+				<th scope="col">Book Id</th>
+				<th scope="col">Book Title</th>
+				<th scope="col">Branch Id</th>
+				<th scope="col">Branch Name</th>
+				<th scope="col">Branch Address</th>
+				<th scope="col">NoOfCopies</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="c in copies">
+				<td scope="col">{{c.bookId}}</td>
+				<td scope="col">{{c.title}}</td>
+				<td scope="col">{{c.branchId}}</td>
+				<td scope="col">{{c.branchName}}</td>
+				<td scope="col">{{c.branchAddress}}</td>
+				<td scope="col">{{c.no_of_copies}}</td>
+			</tr>
+		</tbody>
+	</table>
+
+</div>
